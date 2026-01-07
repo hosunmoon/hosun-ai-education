@@ -651,8 +651,9 @@
             
             
                         
-            // Call sendEmail directly
-            sendEmail();
+        // Show step 2 (preview)
+            document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
         }
         
         function goToStep1() {
