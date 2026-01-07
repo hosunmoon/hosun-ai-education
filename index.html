@@ -295,6 +295,113 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 25px;
+            color: #0066cc;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
+        .preview-content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .preview-content p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .preview-message {
+            white-space: pre-wrap;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
     </style>
 </head>
 <body>
@@ -447,5 +554,142 @@
             <button class="btn" onclick="openModal()">⭐ 교육 문의하기</button>    </section>
 
     
+    <!-- Modal Structure -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <!-- Step 1: Input Form -->
+            <div id="step1" class="modal-step">
+                <h2>교육 문의하기</h2>
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">이름 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일 *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">연락처 *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">회사/기관명</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">관심 프로그램 *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">선택해주세요</option>
+                            <option value="1시간 특강">1시간 특강</option>
+                            <option value="3시간 워크샵">3시간 워크샵</option>
+                            <option value="4주 과정">4주 과정</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">문의 내용 *</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="goToStep2()">다음</button>
+                </form>
+            </div>
+            
+            <!-- Step 2: Preview -->
+            <div id="step2" class="modal-step" style="display: none;">
+                <h2>문의 내용 확인</h2>
+                <div class="preview-content">
+                    <p><strong>이름:</strong> <span id="preview-name"></span></p>
+                    <p><strong>이메일:</strong> <span id="preview-email"></span></p>
+                    <p><strong>연락처:</strong> <span id="preview-phone"></span></p>
+                    <p><strong>회사/기관명:</strong> <span id="preview-company"></span></p>
+                    <p><strong>관심 프로그램:</strong> <span id="preview-interest"></span></p>
+                    <p><strong>문의 내용:</strong></p>
+                    <p class="preview-message" id="preview-message"></p>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goToStep1()">이전</button>
+                    <button type="button" class="btn" onclick="sendEmail()">이메일 보내기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal() {
+            document.getElementById('inquiryModal').style.display = 'block';
+            document.getElementById('step1').style.display = 'block';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('inquiryForm').reset();
+        }
+        
+        function closeModal() {
+            document.getElementById('inquiryModal').style.display = 'none';
+        }
+        
+        function goToStep2() {
+            const form = document.getElementById('inquiryForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value || '미기재';
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+            // Update preview
+            document.getElementById('preview-name').textContent = name;
+            document.getElementById('preview-email').textContent = email;
+            document.getElementById('preview-phone').textContent = phone;
+            document.getElementById('preview-company').textContent = company;
+            document.getElementById('preview-interest').textContent = interest;
+            document.getElementById('preview-message').textContent = message;
+            
+            // Switch to step 2
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+        }
+        
+        function goToStep1() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+        }
+        
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value || '미기재';
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+            const subject = `[교육 문의] ${interest} - ${name}`;
+            const body = `이름: ${name}%0D%0A이메일: ${email}%0D%0A연락처: ${phone}%0D%0A회사/기관명: ${company}%0D%0A관심 프로그램: ${interest}%0D%0A%0D%0A문의 내용:%0D%0A${message.replace(/\n/g, '%0D%0A')}`;
+            
+            const mailtoLink = `mailto:hosunmoon1@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+            window.location.href = mailtoLink;
+            
+            // Close modal after opening email client
+            setTimeout(() => {
+                closeModal();
+            }, 500);
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('inquiryModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+
 </body>
 </html>
