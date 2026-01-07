@@ -606,7 +606,7 @@
                 </div>
                 <div class="button-group">
                     <button type="button" class="btn btn-secondary" onclick="goToStep1()">이전</button>
-                    <button type="button" class="btn" onclick="sendEmail()">이메일 보내기</button>
+                    <button type="button" class="btn" id="sendBtn" onclick="sendEmail()">이메일 보내기</button>
                 </div>
             </div>
         </div>
@@ -681,7 +681,7 @@
     formData.append('subject', `[교육 문의] ${interest} - ${name}`);
 
     // 전송 중 메시지 표시
-    const sendButton = document.querySelector('.btn[onclick="sendEmail()"]');
+    const sendButton = document.getElementById('sendBtn');
     const originalText = sendButton.textContent;
     sendButton.textContent = '전송 중...';
     sendButton.disabled = true;
