@@ -673,12 +673,7 @@
             
             const mailtoLink = `mailto:hosunmoon1@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
             window.location.href = mailtoLink;
-            
-            // Close modal after opening email client
-            setTimeout(() => {
-                closeModal();
-            }, 500);
-        }
+    }            
         
         // Close modal when clicking outside
         window.onclick = function(event) {
