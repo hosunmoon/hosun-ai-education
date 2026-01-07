@@ -669,10 +669,43 @@
             const interest = document.getElementById('interest').value;
             const message = document.getElementById('message').value;
             
-            const subject = `[교육 문의] ${interest} - ${name}`;
-            const body = `이름: ${name}%0D%0A이메일: ${email}%0D%0A연락처: ${phone}%0D%0A회사/기관명: ${company}%0D%0A관심 프로그램: ${interest}%0D%0A%0D%0A문의 내용:%0D%0A${message.replace(/\n/g, '%0D%0A')}`;
-            
-            const mailtoLink = `mailto:hosunmoon1@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
-        // Open mailto link
-            window.location.href = mailtoLink;
-                }
+                // Web3Forms APIを使用して自動メール送信
+    const formData = new FormData();
+    formData.append('access_key', 'YOUR_WEB3FORMS_ACCESS_KEY_HERE'); // ここにWeb3Forms Access Keyを入力
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('company', company);
+    formData.append('interest', interest);
+    formData.append('message', message);
+    formData.append('subject', `[교육 문의] ${interest} - ${name}`);
+
+    // 전송 중 메시지 표시
+    const sendButton = document.querySelector('.btn[onclick="sendEmail()"]');
+    const originalText = sendButton.textContent;
+    sendButton.textContent = '전송 중...';
+    sendButton.disabled = true;
+
+    // Web3Forms API로 전송
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('문의가 성공적으로 전송되었습니다! 곧 연락드리겠습니다.');
+            closeModal();
+        } else {
+            throw new Error(data.message || '전송 실패');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('전송에 실패했습니다. 다시 시도해 주세요.');
+    })
+    .finally(() => {
+        sendButton.textContent = originalText;
+        sendButton.disabled = false;
+    });
+}
