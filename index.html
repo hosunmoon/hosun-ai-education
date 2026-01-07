@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>뉴욕언니 문호선 – 소상공인 AI 교육</title>
+    <title>뉴욕언니 문호선 - 소상공인 AI 교육</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
             background-color: #fafafa;
         }
-
         header {
             background-color: #ffffff;
             padding: 20px 0;
@@ -26,7 +24,6 @@
             top: 0;
             z-index: 100;
         }
-
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -35,404 +32,267 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0066cc;
         }
-
-        nav a {
-            margin-left: 30px;
-            text-decoration: none;
-            color: #1a1a1a;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #007aff;
-        }
-
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 20px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e8f0ff 100%);
+            padding: 80px 20px;
             text-align: center;
         }
-
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
         .hero h1 {
             font-size: 48px;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: white;
-            color: #667eea;
-            padding: 15px 40px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 18px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 60px;
-            color: #1a1a1a;
-            font-weight: 700;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 40px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 24px;
             margin-bottom: 15px;
             color: #1a1a1a;
+            line-height: 1.2;
         }
-
-        .feature-card p {
-            color: #666;
+        .hero .subtitle {
+            font-size: 28px;
+            color: #0066cc;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
             line-height: 1.8;
         }
-
-        .programs {
-            background-color: white;
-            padding: 80px 20px;
+        .hero-cta {
+            margin-top: 40px;
         }
-
-        .program-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background-color: #0052a3;
+        }
+        section {
+            padding: 60px 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-
-        .program-item {
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 30px;
-            transition: border-color 0.3s, transform 0.3s;
-        }
-
-        .program-item:hover {
-            border-color: #667eea;
-            transform: translateY(-3px);
-        }
-
-        .program-item h3 {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: #667eea;
-        }
-
-        .program-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .program-item li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .program-item li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .cta-section h2 {
+        section h2 {
             font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .cta-section p {
-            font-size: 18px;
             margin-bottom: 40px;
-            opacity: 0.95;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 40px 20px;
             text-align: center;
+            color: #1a1a1a;
         }
-
-        footer p {
-            margin: 10px 0;
-            opacity: 0.8;
+        .problems {
+            background-color: #ffffff;
         }
-
-        footer a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
         }
-
-        footer a:hover {
-            opacity: 0.7;
+        .problem-item {
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+            font-size: 16px;
         }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            overflow-y: auto;
+        .problem-item::before {
+            content: "• ";
+            color: #0066cc;
+            font-weight: bold;
+            margin-right: 10px;
         }
-
-        .modal-content {
-            background-color: white;
-            margin: 50px auto;
-            padding: 0;
-            border-radius: 16px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.3s ease-out;
+        .instructor {
+            background-color: #f5f7ff;
         }
-
-        @keyframes slideDown {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 16px 16px 0 0;
-            display: flex;
-            justify-content: space-between;
+        .instructor-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
             align-items: center;
         }
-
-        .modal-header h2 {
-            font-size: 24px;
-            margin: 0;
-        }
-
-        .close {
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
-            cursor: pointer;
-            line-height: 1;
-            transition: opacity 0.3s;
-        }
-
-        .close:hover {
-            opacity: 0.7;
-        }
-
-        .modal-body {
-            padding: 30px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: #1a1a1a;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .instructor-image {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-buttons {
+            height: 400px;
+            background: linear-gradient(135deg, #0066cc, #00b4d8);
+            border-radius: 10px;
             display: flex;
-            gap: 10px;
-            margin-top: 30px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
-
-        .btn {
-            flex: 1;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
         }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: #e0e0e0;
-            color: #1a1a1a;
-        }
-
-        .btn-secondary:hover {
-            background-color: #d0d0d0;
-        }
-
-        .preview-content {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .preview-item {
+        .instructor-info h3 {
+            font-size: 28px;
             margin-bottom: 15px;
-            padding-bottom: 15px;
+        }
+        .instructor-info .name {
+            color: #0066cc;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .instructor-info ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .instructor-info li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+        .instructor-info li::before {
+            content: "✓ ";
+            color: #0066cc;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .results {
+            background-color: #ffffff;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .result-item {
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .result-item h4 {
+            color: #0066cc;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .result-item p {
+            color: #666;
+            font-size: 15px;
+        }
+        .comparison {
+            background-color: #f5f7ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        table th, table td {
+            padding: 20px;
+            text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
-
-        .preview-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-
-        .preview-label {
+        table th {
+            background-color: #0066cc;
+            color: white;
             font-weight: 600;
-            color: #667eea;
-            margin-bottom: 5px;
         }
-
-        .preview-value {
-            color: #1a1a1a;
-            line-height: 1.6;
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
         }
-
-        .hidden {
-            display: none;
+        .programs {
+            background-color: #ffffff;
         }
-
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .program-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+            border-color: #0066cc;
+        }
+        .program-card h3 {
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .program-card li {
+            padding: 8px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .program-card li::before {
+            content: "• ";
+            color: #0066cc;
+            margin-right: 8px;
+        }
+        .target {
+            background-color: #f5f7ff;
+        }
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .target-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        .final-cta {
+            background: linear-gradient(135deg, #0066cc, #00b4d8);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .final-cta .btn {
+            background-color: white;
+            color: #0066cc;
+        }
+        .final-cta .btn:hover {
+            background-color: #f0f0f0;
+        }
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 32px;
-            }
-
-            .hero p {
-                font-size: 18px;
-            }
-
-            .section-title {
-                font-size: 28px;
-            }
-
-            .features {
+            .problems-grid, .target-grid {
                 grid-template-columns: 1fr;
             }
-
-            .program-list {
+            .instructor-content, .results-grid, .programs-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .modal-content {
-                margin: 20px;
-                width: calc(100% - 40px);
-            }
-
-            .form-buttons {
-                flex-direction: column;
-            }
-
-            nav {
-                display: none;
             }
         }
     </style>
@@ -440,249 +300,151 @@
 <body>
     <header>
         <div class="header-content">
-            <img src="https://via.placeholder.com/60" alt="뉴욕언니 문호선" class="logo">
-            <nav>
-                <a href="#about">소개</a>
-                <a href="#programs">프로그램</a>
-            <img src="https://avatars.githubusercontent.com/u/191825913?v=4" alt="뉴욕언니 문호선" class="logo">            </nav>
+            <div class="logo">뉴욕언니 문호선</div>
         </div>
     </header>
 
     <section class="hero">
-        <h1>🌟 뉴욕언니 문호선의 AI 교육</h1>
-        <p>소상공인을 위한 실전 AI 활용법을 배워보세요!</p>
-        <a href="#contact" class="cta-button" onclick="openModal(); return false;">무료 상담 신청하기</a>
-    </section>
-
-    <section class="container" id="about">
-        <h2 class="section-title">다른 AI 강의와는 뭐가 다를까?</h2>
-        <div class="features">
-            <div class="feature-card">
-                <div class="feature-icon">💡</div>
-                <h3>실전 중심 교육</h3>
-                <p>이론이 아닌 실제 비즈니스에 바로 적용 가능한 AI 활용법을 배웁니다.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>맞춤형 커리큘럼</h3>
-                <p>업종과 비즈니스 규모에 맞춰 최적화된 교육 프로그램을 제공합니다.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>1:1 멘토링</h3>
-                <p>개인별 진도와 이해도에 맞춘 세심한 지도를 제공합니다.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🚀</div>
-                <h3>즉시 활용 가능</h3>
-                <p>교육 후 바로 실무에 적용할 수 있는 실용적인 도구와 템플릿을 제공합니다.</p>
+        <div class="hero-content">
+            <h1>소상공인을 위한 실전 AI 교육</h1>
+            <p class="subtitle">배우는 AI가 아니라, 바로 써먹는 AI</p>
+            <p>직원 없이, 시간 없이,<br>혼자서 사업을 운영하는 사장님들을 위한</p>
+            <p style="font-weight: 700; color: #0066cc; font-size: 20px;">실행 중심 AI 활용 교육</p>
+            <div class="hero-cta">
+                <button class="btn" onclick="alert('교육 문의하기 클릭됨')">👉 교육 문의하기</button>
             </div>
         </div>
     </section>
 
-    <section class="programs" id="programs">
-        <h2 class="section-title">교육 프로그램</h2>
-        <div class="program-list">
-            
+    <section class="problems">
+        <h2>혹시 이런 상황이신가요?</h2>
+        <div class="problems-grid">
+            <div class="problem-item">AI가 중요하다는 건 알지만, 제대로 공부할 여유가 없다</div>
+            <div class="problem-item">인스타, 블로그, 배너, 전단지까지 내가 다 만들어야 한다</div>
+            <div class="problem-item">외주 맡기자니 매달 나가는 비용이 부담된다</div>
+            <div class="problem-item">강의를 들어도, 우리 가게·우리 업종에 어떻게 써야 할지 모르겠다</div>
+        </div>
+    </section>
 
-            <div class="program-item">
-                <h3>ChatGPT 기초 과정</h3>
-                <ul>
-                    <li>ChatGPT 계정 생성 및 기본 사용법</li>
-                    <li>효과적인 프롬프트 작성 기법</li>
-                    <li>비즈니스 문서 자동 생성</li>
-                    <li>고객 응대 자동화</li>
-                </ul>
+    <section class="instructor">
+        <h2>저는 이런 교육을 합니다</h2>
+        <div class="instructor-content">
+            <div class="instructor-image">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2d171a58-2037-443d-830b-4a3b531df152" alt="문호선 프로필 사진">
             </div>
-            <div class="program-item">
-                <h3>AI 마케팅 활용</h3>
+            <div class="instructor-info">
+                <h3>
+                    <span class="name">문호선 (뉴욕언니)</span><br>
+                    <span style="font-size: 18px; color: #666; font-weight: 400;">소상공인 실전 AI 교육자</span>
+                </h3>
+                <p style="margin: 20px 0; color: #555; line-height: 1.8;">
+                    AI를 잘 아는 사람을 늘리는 것이 아니라,<br>
+                    <strong>AI로 실제 결과를 만들어본 사장님</strong>을 늘리는 교육을 합니다.
+                </p>
                 <ul>
-                    <li>SNS 콘텐츠 제작</li>
-                    <li>광고 카피 작성</li>
-                    <li>이미지 생성 AI 활용</li>
-                    <li>타겟 고객 분석</li>
-                </ul>
-            </div>
-            <div class="program-item">
-                <h3>업무 자동화</h3>
-                <ul>
-                    <li>반복 업무 자동화</li>
-                    <li>데이터 분석 및 리포트</li>
-                    <li>고객 관리 시스템</li>
-                    <li>일정 및 작업 관리</li>
+                    <li>실제 소상공인 대상 강의·프로젝트 경험 기반 커리큘럼</li>
+                    <li>비전공자, 중장년도 <strong>충분히 따라올 수 있는 난이도</strong></li>
+                    <li>"도구 나열"이 아닌, <strong>가게에 바로 적용되는 구조</strong></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section class="cta-section" id="contact">
-        <h2>지금 바로 시작하세요!</h2>
-        <p>무료 상담을 통해 맞춤형 AI 교육 계획을 세워드립니다</p>
-        <a href="#" class="cta-button" onclick="openModal(); return false;">무료 상담 신청</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 뉴욕언니 문호선. All rights reserved.</p>
-        <p>Email: <a href="mailto:hosunmoon1@gmail.com">hosunmoon1@gmail.com</a></p>
-    </footer>
-
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>무료 상담 신청</h2>
-                <span class="close" onclick="closeModal()">&times;</span>
+    <section class="results">
+        <h2>이 교육을 들으면, 이렇게 달라집니다</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 16px;">교육 후 수강생이 <strong>직접 할 수 있게 되는 것들</strong>:</p>
+        <div class="results-grid">
+            <div class="result-item">
+                <h4>📝 홍보 콘텐츠 제작</h4>
+                <p>우리 가게에 맞는 문구·이미지·영상을 AI로 직접 제작</p>
             </div>
-            <div class="modal-body">
-                <div id="formStep">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="organization">기관명/회사명 *</label>
-                            <input type="text" id="organization" name="organization" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="business">업종 *</label>
-                            <input type="text" id="business" name="business" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="audience">교육 대상 *</label>
-                            <select id="audience" name="audience" required>
-                                <option value="">선택해주세요</option>
-                                <option value="직원">직원</option>
-                                <option value="경영진">경영진</option>
-                                <option value="프리랜서">프리랜서</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="program">관심 프로그램 *</label>
-                            <select id="program" name="program" required>
-                                <option value="ChatGPT 기초">ChatGPT 기초</option>
-                                <option value="AI 마케팅">AI 마케팅</option>
-                                <option value="업무 자동화">업무 자동화</option>
-                                <option value="맞춤형">맞춤형 교육</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">담당자 이름 *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="contact">연락처(전화/이메일) *</label>
-                            <input type="text" id="contact" name="contact" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">문의 내용</label>
-                            <textarea id="message" name="message"></textarea>
-                        </div>
-                        <div class="form-buttons">
-                            <button type="button" class="btn btn-secondary" onclick="closeModal()">취소</button>
-                            <button type="button" class="btn btn-primary" onclick="showPreview()">다음</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div id="previewStep" class="hidden">
-                    <div class="preview-content" id="previewContent"></div>
-                    <div class="form-buttons">
-                        <button type="button" class="btn btn-secondary" onclick="backToForm()">← 수정하기</button>
-                        <button type="button" class="btn btn-primary" onclick="sendEmail()">📧 이메일 보내기</button>
-                    </div>
-                </div>
+            <div class="result-item">
+                <h4>📱 SNS 운영 자동화</h4>
+                <p>인스타 피드, 릴스, 썸네일까지 한 번에 생성</p>
+            </div>
+            <div class="result-item">
+                <h4>🛍️ 상세페이지 제작</h4>
+                <p>기획부터 이미지·설명까지 한 번에 완성</p>
+            </div>
+            <div class="result-item">
+                <h4>♻️ 콘텐츠 재활용</h4>
+                <p>하나의 콘텐츠를 여러 형태로 효율적으로 재활용</p>
+            </div>
+            <div class="result-item">
+                <h4>💼 독립적인 운영</h4>
+                <p>외주 없이도 기본적인 홍보 운영이 가능</p>
+            </div>
+            <div class="result-item">
+                <h4>⏱️ 시간 & 비용 절감</h4>
+                <p>사장님의 시간과 외주비를 획기적으로 줄임</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <script>
-        function openModal() {
-            document.getElementById('contactModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-        }
+    <section class="comparison">
+        <h2>다른 AI 강의와는 뭐가 다를까?</h2>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>일반적인 AI 강의</th>
+                <th>문호선 AI 교육</th>
+            </tr>
+            <tr>
+                <td><strong>초점</strong></td>
+                <td>기능 설명 위주</td>
+                <td>사업·가게 적용 중심</td>
+            </tr>
+            <tr>
+                <td><strong>구성</strong></td>
+                <td>여러 도구 나열</td>
+                <td>목적(매출·홍보) 중심 설계</td>
+            </tr>
+            <tr>
+                <td><strong>실습</strong></td>
+                <td>따라만 해보는 형태</td>
+                <td>당일, 바로 써먹는 결과물</td>
+            </tr>
+            <tr>
+                <td><strong>종료 후</strong></td>
+                <td>강의 끝나면 끝</td>
+                <td>가게에 맞는 틀까지 완성</td>
+            </tr>
+        </table>
+    </section>
 
-        function closeModal() {
-            document.getElementById('contactModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-            document.getElementById('formStep').classList.remove('hidden');
-            document.getElementById('previewStep').classList.add('hidden');
-            document.getElementById('contactForm').reset();
-        }
+    <section class="programs">
+        <h2>프로그램 옵션 한눈에 보기</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>1시간 특강<br><span style="font-size: 16px; color: #666;">AI 맛보기</span></h3>
+                <ul>
+                    <li>구성: 강의 70% + 데모 30%</li>
+                    <li>핵심 AI 툴 소개</li>
+                    <li>우리 가게 사례로 보는 아이디어</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3>3시간 워크숍<br><span style="font-size: 16px; color: #666;">당일 결과물 완성</span></h3>
+                <ul>
+                    <li>구성: 강의 30% + 실습 70%</li>
+                    <li>AI 프롬프트 만들기</li>
+                    <li>인스타 게시글 생성</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3>4주 과정<br><span style="font-size: 16px; color: #666;">AI 시스템 구축</span></h3>
+                <ul>
+                    <li>주 1회, 회차별 과제</li>
+                    <li>1주차: 분석 & 브랜딩</li>
+                    <li>4주차: 캘린더 & 프롬프트</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-        function showPreview() {
-            const organization = document.getElementById('organization').value;
-            const business = document.getElementById('business').value;
-            const audience = document.getElementById('audience').value;
-            const program = document.getElementById('program').value;
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const message = document.getElementById('message').value;
-
-            if (!organization || !business || !audience || !program || !name || !contact) {
-                alert('필수 항목을 모두 입력해주세요.');
-                return;
-            }
-
-            const previewHTML = `
-                <div class="preview-item">
-                    <div class="preview-label">기관명/회사명</div>
-                    <div class="preview-value">${organization}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">업종</div>
-                    <div class="preview-value">${business}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">교육 대상</div>
-                    <div class="preview-value">${audience}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">관심 프로그램</div>
-                    <div class="preview-value">${program}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">담당자 이름</div>
-                    <div class="preview-value">${name}</div>
-                </div>
-                <div class="preview-item">
-                    <div class="preview-label">연락처</div>
-                    <div class="preview-value">${contact}</div>
-                </div>
-                ${message ? `
-                <div class="preview-item">
-                    <div class="preview-label">문의 내용</div>
-                    <div class="preview-value">${message}</div>
-                </div>
-                ` : ''}
-            `;
-
-            document.getElementById('previewContent').innerHTML = previewHTML;
-            document.getElementById('formStep').classList.add('hidden');
-            document.getElementById('previewStep').classList.remove('hidden');
-        }
-
-        function backToForm() {
-            document.getElementById('formStep').classList.remove('hidden');
-            document.getElementById('previewStep').classList.add('hidden');
-        }
-
-        function sendEmail() {
-            const organization = document.getElementById('organization').value;
-            const business = document.getElementById('business').value;
-            const audience = document.getElementById('audience').value;
-            const program = document.getElementById('program').value;
-            const name = document.getElementById('name').value;
-            const contact = document.getElementById('contact').value;
-            const message = document.getElementById('message').value;
-
-            const mailtoLink = `mailto:hosunmoon1@gmail.com?subject=소상공인 AI 교육 문의 - ${organization}&body=기관명/회사명: ${organization}%0D%0A업종: ${business}%0D%0A교육 대상: ${audience}%0D%0A관심 프로그램: ${program}%0D%0A담당자 이름: ${name}%0D%0A연락처(전화/이메일): ${contact}%0D%0A%0D%0A추가 문의사항:%0D%0A${message}`;
-
-            window.location.href = mailtoLink;
-            closeModal();
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target === modal) {
-                closeModal();
-            }
-        }
-    </script>
+    <section class="final-cta">
+        <h2>AI 교육, 지금 시작하세요!</h2>
+        <button class="btn" onclick="alert('교육 문의하기')">👉 교육 문의하기</button>
+    </section>
 </body>
 </html>
