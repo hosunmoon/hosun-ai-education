@@ -1,23 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>뉴욕언니 문호선 - AI 교육</title>
+    <title>뉴욕언니 문호선 - 소상공인 AI 교육</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
             background-color: #fafafa;
         }
-
         header {
             background-color: #ffffff;
             padding: 20px 0;
@@ -26,7 +25,6 @@
             top: 0;
             z-index: 100;
         }
-
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -35,148 +33,375 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .logo {
             font-size: 20px;
             font-weight: 700;
-            color: #006ccc;
+            color: #0066cc;
         }
-
         .hero {
             background: linear-gradient(135deg, #f5f7ff 0%, #e8f0ff 100%);
             padding: 80px 20px;
             text-align: center;
         }
-
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
-
         .hero h1 {
             font-size: 48px;
-            font-weight: 700;
+            margin-bottom: 15px;
             color: #1a1a1a;
-            margin-bottom: 20px;
+            line-height: 1.2;
         }
-
-        .hero p {
-            font-size: 20px;
-            color: #555;
+        .hero .subtitle {
+            font-size: 28px;
+            color: #0066cc;
+            font-weight: 700;
             margin-bottom: 30px;
         }
-
-        .courses {
-            max-width: 1200px;
-            margin: 60px auto;
-            padding: 0 20px;
-        }
-
-        .courses h2 {
-            font-size: 36px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #1a1a1a;
-        }
-
-        .course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-
-        .course-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .course-card h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: #006ccc;
-            margin-bottom: 15px;
-        }
-
-        .course-card p {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .about {
-            background: #ffffff;
-            padding: 80px 20px;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .about p {
+        .hero p {
             font-size: 18px;
             color: #555;
+            margin-bottom: 15px;
             line-height: 1.8;
-            margin-bottom: 15px;
         }
-
-        .contact {
-            max-width: 600px;
-            margin: 60px auto;
-            padding: 40px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        .hero-cta {
+            margin-top: 40px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 14px 40px;
+            background-color: #0066cc;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background-color: #0052a3;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
             text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 15px;
             color: #1a1a1a;
         }
-
-        .contact p {
-            font-size: 16px;
-            color: #666;
-            margin-bottom: 20px;
+        .problems {
+            background-color: #ffffff;
         }
-
-        .contact a {
-            color: #006ccc;
-            text-decoration: none;
-            font-weight: 600;
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .problem-item {
+            padding: 25px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #0066cc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .problem-item::before {
+            content: "• ";
+            color: #0066cc;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .instructor {
+            background-color: #f5f7ff;
+        }
+        .instructor-content {
+            display: grid;
+                        grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .instructor-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #0066cc, #00b4d8);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .instructor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .instructor-info h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .instructor-info .name {
+            color: #0066cc;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        .instructor-info ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+        .instructor-info li {
+            padding: 12px 0;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 16px;
+        }
+        .instructor-info li::before {
+            content: "✓ ";
+            color: #0066cc;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .results {
+            background-color: #ffffff;
+        }
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .result-item {
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .result-item h4 {
+            color: #0066cc;
+            margin-bottom: 15px;
             font-size: 18px;
         }
-
-        .contact a:hover {
-            text-decoration: underline;
+        .result-item p {
+            color: #666;
+            font-size: 15px;
         }
-
-        footer {
-            background-color: #f5f5f5;
-            padding: 30px 20px;
-            text-align: center;
+        .comparison {
+            background-color: #f5f7ff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        table th, table td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        table th {
+            background-color: #0066cc;
+            color: white;
+            font-weight: 600;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .programs {
+            background-color: #ffffff;
+        }
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .program-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+            border-color: #0066cc;
+        }
+        .program-card h3 {
+            color: #0066cc;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        .program-card ul {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        .program-card li {
+            padding: 8px 0;
             color: #666;
             font-size: 14px;
+        }
+        .program-card li::before {
+            content: "• ";
+            color: #0066cc;
+            margin-right: 8px;
+        }
+        .target {
+            background-color: #f5f7ff;
+        }
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .target-item {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #0066cc;
+        }
+        .final-cta {
+            background: linear-gradient(135deg, #0066cc, #00b4d8);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .final-cta h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .final-cta p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .final-cta .btn {
+            background-color: white;
+            color: #0066cc;
+        }
+        .final-cta .btn:hover {
+            background-color: #f0f0f0;
+        }
+        @media (max-width: 768px) {
+            .problems-grid, .target-grid {
+                grid-template-columns: 1fr;
+            }
+            .instructor-content, .results-grid, .programs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 25px;
+            color: #0066cc;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+        }
+        
+        .preview-content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .preview-content p {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .preview-message {
+            white-space: pre-wrap;
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #5a6268;
         }
     </style>
 </head>
@@ -189,42 +414,299 @@
 
     <section class="hero">
         <div class="hero-content">
-            <h1>AI와 함께하는 창의적 교육</h1>
-            <p>동화책 만들기부터 영상 제작까지, AI를 활용한 창의적인 수업을 경험해보세요</p>
-        </div>
-    </section>
-
-    <section class="courses">
-        <h2>교육 과정</h2>
-        <div class="course-grid">
-            <div class="course-card">
-                <h3>📚 동화책 만들기</h3>
-                <p>AI를 활용하여 나만의 창의적인 동화책을 만들어보세요. 스토리 구성부터 일러스트 생성까지, AI 도구를 활용한 창작 과정을 배웁니다.</p>
-            </div>
-            <div class="course-card">
-                <h3>🎬 영상 제작</h3>
-                <p>AI 기술을 활용한 영상 편집과 제작을 배웁니다. 기획부터 완성까지, 전문적인 영상 콘텐츠를 만드는 방법을 익힐 수 있습니다.</p>
+            <h1>소상공인을 위한 실전 AI 교육</h1>
+            <p class="subtitle">배우는 AI가 아니라, 바로 써먹는 AI</p>
+            <p>직원 없이, 시간 없이,<br>혼자서 사업을 운영하는 사장님들을 위한</p>
+            <p style="font-weight: 700; color: #0066cc; font-size: 20px;">실행 중심 AI 활용 교육</p>
+            <div class="hero-cta">
+                            <button class="btn" onclick="openModal()">👉 교육 문의하기</button>
             </div>
         </div>
     </section>
 
-    <section class="about">
-        <div class="about-content">
-            <h2>강사 소개</h2>
-            <p>안녕하세요, 뉴욕언니 문호선입니다.</p>
-            <p>AI 기술을 교육에 접목하여 누구나 쉽고 재미있게 배울 수 있는 창의적인 수업을 진행하고 있습니다.</p>
-            <p>함께 AI의 가능성을 탐험하며 새로운 창작의 세계를 경험해보세요!</p>
+    <section class="problems">
+        <h2>혹시 이런 상황이신가요?</h2>
+        <div class="problems-grid">
+            <div class="problem-item">AI가 중요하다는 건 알지만, 제대로 공부할 여유가 없다</div>
+            <div class="problem-item">인스타, 블로그, 배너, 전단지까지 내가 다 만들어야 한다</div>
+            <div class="problem-item">외주 맡기자니 매달 나가는 비용이 부담된다</div>
+            <div class="problem-item">강의를 들어도, 우리 가게·우리 업종에 어떻게 써야 할지 모르겠다</div>
         </div>
     </section>
 
-    <section class="contact">
-        <h2>교육 문의</h2>
-        <p>교육 프로그램에 대해 궁금하신 점이 있으시면 언제든지 연락주세요.</p>
-        <a href="mailto:contact@example.com">contact@example.com</a>
+    <section class="instructor">    <section class="instructor">
+        <h2>실제로 쓰게 되는 AI 교육</h2>
+        <div class="instructor-content">
+            <div class="instructor-image">
+                <img src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/2d171a58-2037-443d-830b-4a3b531df152" alt="문호선 프로필 사진">
+            </div>
+            <div class="instructor-info">
+                <h3>
+                    <span class="name">문호선 (뉴욕언니)</span><br>
+                    <span style="font-size: 18px; color: #666; font-weight: 400;">소상공인 실전 AI 교육자</span>
+                </h3>
+                <p style="margin: 20px 0; color: #555; line-height: 1.8;">
+                    AI를 잘 아는 사람을 늘리는 것이 아니라,<br>
+                    <strong>AI로 실제 결과를 만들어본 사장님</strong>을 늘리는 교육을 합니다.
+                </p>
+                <ul>
+                    <li>실제 소상공인 대상 강의·프로젝트 경험 기반 커리큐럼</li>
+                    <li>비전공자, 중장년도 <strong>충분히 따라올 수 있는 난이도</strong></li>
+                    <li>"도구 나열"이 아니다, <strong>가게에 바로 적용되는 구조</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>nter; color: #666; margin-bottom: 40px; font-size: 16px;">교육 후 수강생이 <strong>직접 할 수 있게 되는 것들</strong>:</p>
+        <div class="results-grid">
+            <div class="result-item">
+                <h4>📝 홍보 콘텐츠 제작</h4>
+                <p>우리 가게에 맞는 문구·이미지·영상을 AI로 직접 제작</p>
+            </div>
+            <div class="result-item">
+                <h4>📱 SNS 운영 자동화</h4>
+                <p>인스타 피드, 릴스, 썸네일까지 한 번에 생성</p>
+            </div>
+            <div class="result-item">
+                <h4>🛍️ 상세페이지 제작</h4>
+                <p>기획부터 이미지·설명까지 한 번에 완성</p>
+            </div>
+            <div class="result-item">
+                <h4>♻️ 콘텐츠 재활용</h4>
+                <p>하나의 콘텐츠를 여러 형태로 효율적으로 재활용</p>
+            </div>
+            <div class="result-item">
+                <h4>💼 독립적인 운영</h4>
+                <p>외주 없이도 기본적인 홍보 운영이 가능</p>
+            </div>
+            <div class="result-item">
+                <h4>⏱️ 시간 & 비용 절감</h4>
+                <p>사장님의 시간과 외주비를 획기적으로 줄임</p>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 뉴욕언니 문호선. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <section class="comparison">
+        <h2>다른 AI 강의와는 뭐가 다를까?</h2>
+        <table>
+            <tr>
+                <th>구분</th>
+                <th>일반적인 AI 강의</th>
+                <th>문호선 AI 교육</th>
+            </tr>
+            <tr>
+                <td><strong>초점</strong></td>
+                <td>기능 설명 위주</td>
+                <td>사업·가게 적용 중심</td>
+            </tr>
+            <tr>
+                <td><strong>구성</strong></td>
+                <td>여러 도구 나열</td>
+                <td>목적(매출·홍보) 중심 설계</td>
+            </tr>
+            <tr>
+                <td><strong>실습</strong></td>
+                <td>따라만 해보는 형태</td>
+                <td>당일, 바로 써먹는 결과물</td>
+            </tr>
+            <tr>
+                <td><strong>종료 후</strong></td>
+                <td>강의 끝나면 끝</td>
+                <td>가게에 맞는 틀까지 완성</td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="programs">
+        <h2>프로그램 옵션 한눈에 보기</h2>
+        <div class="programs-grid">
+            <div class="program-card">
+                <h3>1시간 특강<br><span style="font-size: 16px; color: #666;">AI 맛보기</span></h3>
+                <ul>
+                    <li>구성: 강의 70% + 데모 30%</li>
+                    <li>핵심 AI 툴 소개</li>
+                    <li>우리 가게 사례로 보는 아이디어</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3>3시간 워크숍<br><span style="font-size: 16px; color: #666;">당일 결과물 완성</span></h3>
+                <ul>
+                    <li>구성: 강의 30% + 실습 70%</li>
+                    <li>AI 프롬프트 만들기</li>
+                    <li>인스타 게시글 생성</li>
+                </ul>
+            </div>
+            <div class="program-card">
+                <h3>4주 과정<br><span style="font-size: 16px; color: #666;">AI 시스템 구축</span></h3>
+                <ul>
+                    <li>주 1회, 회차별 과제</li>
+                    <li>1주차: 분석 & 브랜딩</li>
+                    <li>4주차: 캘린더 & 프롬프트</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <h2>AI 교육, 지금 시작하세요!</h2>
+            <button class="btn" onclick="openModal()">⭐ 교육 문의하기</button>    </section>
+
+    
+    <!-- Modal Structure -->
+    <div id="inquiryModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <!-- Step 1: Input Form -->
+            <div id="step1" class="modal-step">
+                <h2>교육 문의하기</h2>
+                <form id="inquiryForm">
+                    <div class="form-group">
+                        <label for="name">이름 *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">이메일 *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">연락처 *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">회사/기관명</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="interest">관심 프로그램 *</label>
+                        <select id="interest" name="interest" required>
+                            <option value="">선택해주세요</option>
+                            <option value="1시간 특강">1시간 특강</option>
+                            <option value="3시간 워크샵">3시간 워크샵</option>
+                            <option value="4주 과정">4주 과정</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">문의 내용 *</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="button" class="btn" onclick="goToStep2()">다음</button>
+                </form>
+            </div>
+            
+            <!-- Step 2: Preview -->
+            <div id="step2" class="modal-step" style="display: none;">
+                <h2>문의 내용 확인</h2>
+                <div class="preview-content">
+                    <p><strong>이름:</strong> <span id="preview-name"></span></p>
+                    <p><strong>이메일:</strong> <span id="preview-email"></span></p>
+                    <p><strong>연락처:</strong> <span id="preview-phone"></span></p>
+                    <p><strong>회사/기관명:</strong> <span id="preview-company"></span></p>
+                    <p><strong>관심 프로그램:</strong> <span id="preview-interest"></span></p>
+                    <p><strong>문의 내용:</strong></p>
+                    <p class="preview-message" id="preview-message"></p>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-secondary" onclick="goToStep1()">이전</button>
+                    <button type="button" class="btn" onclick="sendEmail()">이메일 보내기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal Functions
+        function openModal() {
+            document.getElementById('inquiryModal').style.display = 'block';
+            document.getElementById('step1').style.display = 'block';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('inquiryForm').reset();
+        }
+        
+        function closeModal() {
+            document.getElementById('inquiryModal').style.display = 'none';
+        }
+        
+        function goToStep2() {
+            const form = document.getElementById('inquiryForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value || '미기재';
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+            // Update preview
+            document.getElementById('preview-name').textContent = name;
+            document.getElementById('preview-email').textContent = email;
+            document.getElementById('preview-phone').textContent = phone;
+            document.getElementById('preview-company').textContent = company;
+            document.getElementById('preview-interest').textContent = interest;
+            document.getElementById('preview-message').textContent = message;
+            
+            
+            
+                        
+        // Show step 2 (preview)
+            document.getElementById('step1').style.display = 'none';
+        document.getElementById('step2').style.display = 'block';
+        }
+        
+        function goToStep1() {
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step1').style.display = 'block';
+        }
+        
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value || '미기재';
+            const interest = document.getElementById('interest').value;
+            const message = document.getElementById('message').value;
+            
+                // Web3Forms APIを使用して自動メール送信
+    const formData = new FormData();
+    formData.append('access_key', '62419481-3067-4f11-bd81-c44c327eec2a'); // ここにWeb3Forms Access Keyを入力
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('company', company);
+    formData.append('interest', interest);
+    formData.append('message', message);
+    formData.append('subject', `[교육 문의] ${interest} - ${name}`);
+
+    // 전송 중 메시지 표시
+    const sendButton = document.querySelector('.btn[onclick="sendEmail()"]');
+    const originalText = sendButton.textContent;
+    sendButton.textContent = '전송 중...';
+    sendButton.disabled = true;
+
+    // Web3Forms API로 전송
+    fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('문의가 성공적으로 전송되었습니다! 곧 연락드리겠습니다.');
+            closeModal();
+        } else {
+            throw new Error(data.message || '전송 실패');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('전송에 실패했습니다. 다시 시도해 주세요.');
+    })
+    .finally(() => {
+        sendButton.textContent = originalText;
+        sendButton.disabled = false;
+    });
+}
