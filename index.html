@@ -149,28 +149,28 @@
 
         .instructor-image {
             width: 100%;
-            height: 400px;
-            /* background: linear-gradient(135deg, #0066cc, #00b4d8); Removed blue background */
-            background-color: #f0f0f0;
-            /* Light neutral background just in case */
+            height: auto;
+            /* Let image define height */
+            /* background-color: #f0f0f0;  Optional: keep or remove */
             border-radius: 10px;
             display: flex;
+            /* Keeps centering */
             align-items: center;
             justify-content: center;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            /* Added shadow */
         }
 
         .instructor-image img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-            /* Ensure top of image (head) is always visible */
+            height: auto;
+            /* Natural height */
+            /* object-fit: cover;  Removed to show full image */
+            /* object-position: top center; Removed as not needed with natural height */
+            display: block;
+            /* Removes bottom space */
             border-radius: 10px;
             transition: transform 0.3s ease;
-            /* Smooth hover effect */
         }
 
         .instructor-image:hover img {
